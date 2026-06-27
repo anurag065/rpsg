@@ -12,7 +12,7 @@ function CTA() {
           <p>Request a quote or connect with our technical team to find the right additive for your formulation.</p>
         </div>
         <div className={`cta-btns ${isVisible ? 'animate-right visible' : 'animate-right'}`}>
-          <Link className="btn btn-grn hf" to="/contact">Request a Quote</Link>
+          <Link className="btn btn-grn hf" to="/contact">Sales Enquiry</Link>
           <Link className="btn btn-outw hf" to="/contact">Talk to a Specialist</Link>
         </div>
       </div>

@@ -71,9 +71,11 @@ function SustainabilityPage() {
       <section className="sec" ref={greenRef}>
         <div className="wrap">
           <div className={`sec-head ${greenVisible ? 'animate-on-scroll visible' : 'animate-on-scroll'}`}>
-            <div className="kicker">Green Chemistry</div>
-            <h2>Biodegradable chelates, built as better alternatives</h2>
-            <p>Our GLDA, HEIDA and IDS chelating agents offer biodegradable alternatives to conventional chelants such as EDTA and NTA — without compromising performance.</p>
+            <div>
+              <div className="kicker">Green Chemistry</div>
+              <h2>Biodegradable chelates, built as better alternatives</h2>
+              <p className="lead">Our GLDA, HEIDA and IDS chelating agents offer biodegradable alternatives to conventional chelants such as EDTA and NTA — without compromising performance.</p>
+            </div>
           </div>
           <div className="compare">
             <div className="cmp old">
@@ -121,8 +123,10 @@ function SustainabilityPage() {
       <section className="sec" style={{ background: '#FAF6F2' }} ref={stewRef}>
         <div className="wrap">
           <div className={`sec-head ${stewVisible ? 'animate-on-scroll visible' : 'animate-on-scroll'}`}>
-            <div className="kicker">Environmental Stewardship</div>
-            <h2>Operating responsibly across our sites</h2>
+            <div>
+              <div className="kicker">Environmental Stewardship</div>
+              <h2>Operating responsibly across our sites</h2>
+            </div>
           </div>
           <div className="stew">
             {stewardship.map((item, i) => (
@@ -155,9 +159,11 @@ function SustainabilityPage() {
       <section className="sec" ref={csrRef}>
         <div className="wrap">
           <div className={`sec-head ${csrVisible ? 'animate-on-scroll visible' : 'animate-on-scroll'}`}>
-            <div className="kicker">Community · CSR</div>
-            <h2>The Aquapharm Foundation</h2>
-            <p>Through the Aquapharm Foundation, we invest in the communities around our operations — across water, environment, education and health.</p>
+            <div>
+              <div className="kicker">Community · CSR</div>
+              <h2>The Aquapharm Foundation</h2>
+              <p className="lead">Through the Aquapharm Foundation, we invest in the communities around our operations — across water, environment, education and health.</p>
+            </div>
           </div>
           <div className={`csr-intro ${csrVisible ? 'animate-on-scroll visible' : 'animate-on-scroll'}`} style={{ transitionDelay: '0.1s' }}>
             <div>
@@ -199,7 +205,7 @@ function SustainabilityPage() {
             <p>Ask about our biodegradable chelates and lower-impact alternatives for your formulation.</p>
           </div>
           <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-            <Link className="btn btn-grn hf" to="/contact">Request a Quote</Link>
+            <Link className="btn btn-grn hf" to="/contact">Sales Enquiry</Link>
             <Link className="btn btn-outw hf" to="/products">Explore Products</Link>
           </div>
         </div>

@@ -14,7 +14,7 @@ const quickLinks = [
   { to: '/careers', label: 'Careers' },
   { to: '/sustainability', label: 'CSR' },
   { to: '/contact', label: 'Contact' },
-  { to: '/contact', label: 'Request a Quote' }
+  { to: '/contact', label: 'Sales Enquiry' }
 ];
 
 const offices = [

@@ -71,8 +71,10 @@ function CareersPage() {
       <section className="sec" ref={whyRef}>
         <div className="wrap">
           <div className={`sec-head ${whyVisible ? 'animate-on-scroll visible' : 'animate-on-scroll'}`}>
-            <div className="kicker">Why Aquapharm</div>
-            <h2>A place to do meaningful work at global scale</h2>
+            <div>
+              <div className="kicker">Why Aquapharm</div>
+              <h2>A place to do meaningful work at global scale</h2>
+            </div>
           </div>
           <div className="why-g">
             {whyCards.map((card, i) => (
@@ -93,8 +95,10 @@ function CareersPage() {
       <section className="life" ref={lifeRef}>
         <div className="wrap life-in">
           <div className={`sec-head ${lifeVisible ? 'animate-on-scroll visible' : 'animate-on-scroll'}`}>
-            <div className="kicker">Life at Aquapharm</div>
-            <h2>Where science, scale and people meet</h2>
+            <div>
+              <div className="kicker">Life at Aquapharm</div>
+              <h2>Where science, scale and people meet</h2>
+            </div>
           </div>
           <div className="life-g">
             {lifeImages.map((img, i) => (
@@ -110,8 +114,10 @@ function CareersPage() {
         <div className="wrap">
           <div className={`jobs-head ${jobsVisible ? 'animate-on-scroll visible' : 'animate-on-scroll'}`}>
             <div className="sec-head" style={{ marginBottom: 0 }}>
-              <div className="kicker">Open Positions</div>
-              <h2>Current openings</h2>
+              <div>
+                <div className="kicker">Open Positions</div>
+                <h2>Current openings</h2>
+              </div>
             </div>
             <div className="deptfilter">
               <span className={`dchip ${dept === 'all' ? 'on' : ''}`} onClick={() => setDept('all')}>All</span>
@@ -151,8 +157,10 @@ function CareersPage() {
       <section className="sec" style={{ background: '#FAF6F2' }} ref={procRef}>
         <div className="wrap">
           <div className={`sec-head ${procVisible ? 'animate-on-scroll visible' : 'animate-on-scroll'}`}>
-            <div className="kicker">Hiring Process</div>
-            <h2>How hiring works</h2>
+            <div>
+              <div className="kicker">Hiring Process</div>
+              <h2>How hiring works</h2>
+            </div>
           </div>
           <div className="proc">
             {steps.map((step) => (

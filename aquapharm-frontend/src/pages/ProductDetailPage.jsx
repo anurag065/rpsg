@@ -76,7 +76,7 @@ function ProductDetailPage() {
               <div className="syn">Etidronic Acid · 1-Hydroxyethylidene-1,1-diphosphonic acid</div>
               <p className="desc">HEDP is a highly effective scale and corrosion inhibitor with excellent chelating properties. It offers superior performance in water treatment, detergent formulations, and oilfield applications.</p>
               <div className="phero-btns">
-                <Link className="btn btn-grn hf" to="/contact">Request a Quote</Link>
+                <Link className="btn btn-grn hf" to="/contact">Sales Enquiry</Link>
                 <Link className="btn btn-out hf" to="/contact">Request Sample</Link>
               </div>
             </div>
@@ -262,7 +262,7 @@ function ProductDetailPage() {
                   </span>
                 </a>
                 <div className="dl-cta">
-                  <Link className="btn btn-grn hf" to="/contact">Request a Quote</Link>
+                  <Link className="btn btn-grn hf" to="/contact">Sales Enquiry</Link>
                   <p className="dl-note">Technical team responds within 1 business day.</p>
                 </div>
               </div>

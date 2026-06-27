@@ -234,7 +234,7 @@ function Hero() {
             </div>
 
             <SplitText
-              text="Specialty Chemistry for a Sustainable World"
+              text="Specialty Chemistry, Delivered Globally"
               className="hero-headline hf"
               tag="h1"
               delay={30}
@@ -256,7 +256,7 @@ function Hero() {
 
             <div className={`hero-btns ${headlineComplete ? 'fade-up-delay visible delay-1' : 'fade-up-delay'}`}>
               <Link className="btn btn-pri hf" to="/products">Explore Products</Link>
-              <Link className="btn btn-out hf" to="/contact">Request a Quote</Link>
+              <Link className="btn btn-out hf" to="/contact">Sales Enquiry</Link>
             </div>
 
             <div className={`qsearch ${headlineComplete ? 'fade-up-delay visible delay-2' : 'fade-up-delay'}`}>

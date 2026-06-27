@@ -1981,11 +1981,11 @@ a {
   font-family: 'Archivo', sans-serif;
   font-weight: 700;
   font-size: 36px;
-  line-height: 1.1;
+  line-height: 1.15;
   letter-spacing: -0.02em;
   color: var(--color-heading);
   margin: 0;
-  max-width: 18ch;
+  max-width: 32ch;
 }
 
 .sec-head .lead {
@@ -4891,5 +4891,252 @@ a {
 
   .csr-g {
     grid-template-columns: 1fr;
+  }
+}
+
+/* =====================================================
+   PRELOADER / SPLASH ANIMATION
+   ===================================================== */
+
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #7B2D7E 0%, #9B4A9E 25%, #EA5A1C 75%, #F27A3D 100%);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* Fade out animation */
+.preloader.fading {
+  animation: preloaderFadeOut 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes preloaderFadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.05);
+    pointer-events: none;
+  }
+}
+
+.preloader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.preloader-logo-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* "Part of the" tagline */
+.preloader-tagline {
+  display: flex;
+  justify-content: center;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+}
+
+.preloader-tagline-char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: taglineCharIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes taglineCharIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Keep tagline visible in holding/fading phases */
+.preloader.holding .preloader-tagline-char,
+.preloader.fading .preloader-tagline-char {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Logo mark animation */
+.preloader-logo-mark {
+  width: 280px;
+  height: auto;
+  max-width: 90vw;
+  object-fit: contain;
+  border-radius: 16px;
+  background: white;
+  padding: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25), 0 8px 24px rgba(0, 0, 0, 0.15);
+  animation: logoMarkIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes logoMarkIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) rotate(-5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* Progress bar */
+.preloader-progress {
+  width: 160px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 32px;
+  opacity: 0;
+  animation: progressFadeIn 0.4s ease forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes progressFadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.preloader-progress-bar {
+  height: 100%;
+  width: 0;
+  background: white;
+  border-radius: 2px;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+  animation: progressFill 3.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes progressFill {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+/* Skip button */
+.preloader-skip {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 10px 20px;
+  border-radius: var(--radius-full);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  opacity: 0;
+  animation: skipFadeIn 0.4s ease forwards;
+  animation-delay: 1s;
+  backdrop-filter: blur(8px);
+}
+
+@keyframes skipFadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.preloader-skip:hover {
+  background: white;
+  color: var(--purple-500);
+  border-color: white;
+}
+
+/* Holding phase - subtle pulse on logo */
+.preloader.holding .preloader-logo-mark,
+.preloader.fading .preloader-logo-mark {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.preloader.holding .preloader-logo-mark {
+  animation: logoPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes logoPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25), 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.02);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.3), 0 12px 32px rgba(0, 0, 0, 0.2), 0 0 0 8px rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Mobile responsive */
+@media (max-width: 640px) {
+  .preloader-logo-mark {
+    width: 220px;
+    padding: 20px;
+  }
+
+  .preloader-progress {
+    width: 120px;
+  }
+
+  .preloader-skip {
+    bottom: 24px;
+    right: 24px;
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+}
+
+/* Prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .preloader,
+  .preloader * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .preloader-logo-mark,
+  .preloader-tagline-char,
+  .preloader-progress,
+  .preloader-skip {
+    opacity: 1;
+    transform: none;
+  }
+
+  .preloader-progress-bar {
+    width: 100%;
   }
 }

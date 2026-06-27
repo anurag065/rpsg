@@ -1,6 +1,8 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useState, useCallback } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Preloader from './components/Preloader';
 import Home from './pages/Home';
 import Placeholder from './pages/Placeholder';
 import ProductsPage from './pages/ProductsPage';
@@ -10,9 +12,13 @@ import ProductDetailPage from './pages/ProductDetailPage';
 import SustainabilityPage from './pages/SustainabilityPage';
 import './App.css';
 
-function App() {
+function AppContent({ onPreloaderComplete }) {
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
+
   return (
-    <Router>
+    <>
+      {isHomePage && <Preloader onComplete={onPreloaderComplete} />}
       <div className="page">
         <Header />
         <main>
@@ -31,6 +37,20 @@ function App() {
         </main>
         <Footer />
       </div>
+    </>
+  );
+}
+
+function App() {
+  const [preloaderComplete, setPreloaderComplete] = useState(false);
+
+  const handlePreloaderComplete = useCallback(() => {
+    setPreloaderComplete(true);
+  }, []);
+
+  return (
+    <Router>
+      <AppContent onPreloaderComplete={handlePreloaderComplete} />
     </Router>
   );
 }

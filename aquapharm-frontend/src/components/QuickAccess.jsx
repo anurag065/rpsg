@@ -22,7 +22,7 @@ const quickAccessItems = [
         <line x1="8.5" y1="16" x2="13" y2="16"></line>
       </svg>
     ),
-    title: 'Request a Quote',
+    title: 'Sales Enquiry',
     subtitle: 'Get pricing & samples'
   },
   {

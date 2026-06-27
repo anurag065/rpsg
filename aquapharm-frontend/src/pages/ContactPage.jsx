@@ -62,8 +62,8 @@ function ContactPage() {
     <>
       <section className="phead">
         <div className="wrap phead-in">
-          <div className={`crumb ${isLoaded ? 'animate-on-scroll visible' : 'animate-on-scroll'}`}><Link to="/">Home</Link> / Request a Quote</div>
-          <h1 className={isLoaded ? 'animate-on-scroll visible' : 'animate-on-scroll'} style={{ transitionDelay: '0.1s' }}>Request a Quote</h1>
+          <div className={`crumb ${isLoaded ? 'animate-on-scroll visible' : 'animate-on-scroll'}`}><Link to="/">Home</Link> / Sales Enquiry</div>
+          <h1 className={isLoaded ? 'animate-on-scroll visible' : 'animate-on-scroll'} style={{ transitionDelay: '0.1s' }}>Sales Enquiry</h1>
           <p className={isLoaded ? 'animate-on-scroll visible' : 'animate-on-scroll'} style={{ transitionDelay: '0.2s' }}><span className="dot-g"></span>Our technical team responds within 1 business day.</p>
         </div>
       </section>

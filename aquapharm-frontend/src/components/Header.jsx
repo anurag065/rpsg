@@ -56,13 +56,13 @@ function Header() {
         </div>
         <nav className="nav">
           <NavLink to="/" className={({ isActive }) => isActive ? 'active' : ''}>Home</NavLink>
+          <NavLink to="/about">About</NavLink>
           <NavLink to="/products">Products</NavLink>
           <NavLink to="/industries">Industries</NavLink>
           <NavLink to="/sustainability">Sustainability</NavLink>
           <NavLink to="/innovation">Innovation Centre</NavLink>
           <NavLink to="/investors">Investor Relations</NavLink>
           <NavLink to="/careers">Careers</NavLink>
-          <NavLink to="/about">About</NavLink>
         </nav>
         <div className="hdr-r">
           {/* Language Switcher */}
@@ -91,7 +91,7 @@ function Header() {
               </div>
             )}
           </div>
-          <Link className="btn btn-rfq hf" to="/contact">Request a Quote</Link>
+          <Link className="btn btn-rfq hf" to="/contact">Sales Enquiry</Link>
           <button className="burger" onClick={toggleMenu} aria-label="Menu">
             <span></span>
             <span></span>
@@ -103,13 +103,13 @@ function Header() {
       {/* Mobile nav */}
       <div className="mnav" style={{ display: menuOpen ? 'block' : 'none' }}>
         <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
+        <Link to="/about" onClick={() => setMenuOpen(false)}>About</Link>
         <Link to="/products" onClick={() => setMenuOpen(false)}>Products</Link>
         <Link to="/industries" onClick={() => setMenuOpen(false)}>Industries</Link>
         <Link to="/sustainability" onClick={() => setMenuOpen(false)}>Sustainability</Link>
         <Link to="/innovation" onClick={() => setMenuOpen(false)}>Innovation Centre</Link>
         <Link to="/investors" onClick={() => setMenuOpen(false)}>Investor Relations</Link>
         <Link to="/careers" onClick={() => setMenuOpen(false)}>Careers</Link>
-        <Link to="/about" onClick={() => setMenuOpen(false)}>About</Link>
         {/* Mobile Language Selector */}
         <div className="mnav-lang">
           <Globe size={16} strokeWidth={1.5} />
@@ -126,7 +126,7 @@ function Header() {
             ))}
           </div>
         </div>
-        <Link className="btn btn-rfq hf" to="/contact" onClick={() => setMenuOpen(false)}>Request a Quote</Link>
+        <Link className="btn btn-rfq hf" to="/contact" onClick={() => setMenuOpen(false)}>Sales Enquiry</Link>
       </div>
     </header>
   );
