@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const applications = [
@@ -40,8 +40,10 @@ const moleculeImages = [
   'https://images.unsplash.com/photo-1616400619175-5beda3a17896?w=300&q=80'
 ];
 
+/* TODO: this page renders HEDP regardless of the :productId route param.
+   Wire it to the catalogue in src/data/products.js when the per-product
+   specs, FAQs and molecule data are available. */
 function ProductDetailPage() {
-  const { productId } = useParams();
   const [activeTab, setActiveTab] = useState('overview');
   const [isLoaded, setIsLoaded] = useState(false);
   const [relatedRef, relatedVisible] = useScrollAnimation(0.1);
@@ -170,7 +172,7 @@ function ProductDetailPage() {
                     <li>Store in a cool, dry place away from direct sunlight. Shelf life: 24 months</li>
                     <li>Non-hazardous for transport. Handle with standard industrial precautions</li>
                   </ul>
-                  <p style={{ marginTop: '8px' }}>Custom packaging and private-label options are available on request — <Link to="/contact" style={{ color: '#EA5A1C', fontWeight: 500 }}>contact our team</Link>.</p>
+                  <p style={{ marginTop: '8px' }}>Custom packaging and private-label options are available on request — <Link to="/contact" style={{ color: '#0F62AE', fontWeight: 500 }}>contact our team</Link>.</p>
                 </div>
               )}
 
@@ -185,7 +187,7 @@ function ProductDetailPage() {
                   ))}
                   <div className="faq-i">
                     <h4>How do I request a Certificate of Analysis?</h4>
-                    <p>A batch-specific CoA is available on request with your order — use the downloads panel or <Link to="/contact" style={{ color: '#EA5A1C', fontWeight: 500 }}>request a quote</Link>.</p>
+                    <p>A batch-specific CoA is available on request with your order — use the downloads panel or <Link to="/contact" style={{ color: '#0F62AE', fontWeight: 500 }}>request a quote</Link>.</p>
                   </div>
                 </div>
               )}

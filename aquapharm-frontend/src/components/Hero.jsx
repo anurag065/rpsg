@@ -2,74 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import SplitText from './SplitText';
 import { X, ArrowLeft, Search } from 'lucide-react';
-
-// Mock product data for search
-const mockProducts = [
-  {
-    id: 1,
-    name: 'HEDP / AQUACID 105EX',
-    category: 'Phosphonate',
-    cas: '2809-21-4',
-    application: 'Scale & corrosion inhibition',
-    industries: ['Water Treatment', 'Oil & Gas']
-  },
-  {
-    id: 2,
-    name: 'ATMP / AQUACID 108EX',
-    category: 'Phosphonate',
-    cas: '6419-19-8',
-    application: 'Water treatment, metal cleaning',
-    industries: ['Water Treatment', 'Industrial Cleaning']
-  },
-  {
-    id: 3,
-    name: 'DTPMP',
-    category: 'Phosphonate',
-    cas: '15827-60-8',
-    application: 'Detergents, peroxide stabilization',
-    industries: ['Detergents', 'Textile']
-  },
-  {
-    id: 4,
-    name: 'PBTC',
-    category: 'Phosphonate',
-    cas: '37971-36-1',
-    application: 'Cooling water treatment',
-    industries: ['Water Treatment', 'HVAC']
-  },
-  {
-    id: 5,
-    name: 'GLDA',
-    category: 'Biodegradable Chelate',
-    cas: '51981-21-6',
-    application: 'Personal care, cleaning products',
-    industries: ['Personal Care', 'Home Care']
-  },
-  {
-    id: 6,
-    name: 'IDS (Tetrasodium Iminodisuccinate)',
-    category: 'Biodegradable Chelate',
-    cas: '144538-83-0',
-    application: 'Detergents, industrial cleaning',
-    industries: ['Detergents', 'Industrial Cleaning']
-  },
-  {
-    id: 7,
-    name: 'PESA / Maxinol 600',
-    category: 'Polymer',
-    cas: '51274-37-4',
-    application: 'Water treatment, scale inhibition',
-    industries: ['Water Treatment', 'Oil & Gas']
-  },
-  {
-    id: 8,
-    name: 'MBT (Mercaptobenzothiazole)',
-    category: 'Corrosion Inhibitor',
-    cas: '149-30-4',
-    application: 'Metal protection, antifreeze',
-    industries: ['Automotive', 'Metalworking']
-  }
-];
+import { searchProducts, categoryColor } from '../data/products';
 
 function Hero() {
   const [searchType, setSearchType] = useState('Products');
@@ -143,27 +76,8 @@ function Hero() {
     setHeadlineComplete(true);
   };
 
-  const filterProducts = (query) => {
-    if (!query.trim()) return [];
-
-    const lowerQuery = query.toLowerCase();
-
-    return mockProducts.filter(product => {
-      const matchesName = product.name.toLowerCase().includes(lowerQuery);
-      const matchesCas = product.cas.toLowerCase().includes(lowerQuery);
-      const matchesApplication = product.application.toLowerCase().includes(lowerQuery);
-      const matchesCategory = product.category.toLowerCase().includes(lowerQuery);
-      const matchesIndustry = product.industries.some(ind =>
-        ind.toLowerCase().includes(lowerQuery)
-      );
-
-      if (searchType === 'Industries') {
-        return matchesIndustry || matchesApplication;
-      }
-
-      return matchesName || matchesCas || matchesApplication || matchesCategory;
-    });
-  };
+  const filterProducts = (query) =>
+    searchProducts(query, { limit: 24, scope: searchType });
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -193,16 +107,6 @@ function Hero() {
     setSearchResults([]);
   };
 
-  const getCategoryColor = (category) => {
-    const colors = {
-      'Phosphonate': '#7B2D7E',
-      'Biodegradable Chelate': '#2E7D32',
-      'Polymer': '#1565C0',
-      'Corrosion Inhibitor': '#EF6C00'
-    };
-    return colors[category] || '#5B6770';
-  };
-
   return (
     <>
       <section className={`hero ${searchMode ? 'search-mode-active' : ''}`}>
@@ -218,7 +122,7 @@ function Hero() {
               playsInline
               preload="auto"
             >
-              <source src="/assets/hero-bg.mp4" type="video/mp4" />
+              <source src="/assets/hero-vid.mp4" type="video/mp4" />
             </video>
           ) : null}
           <div className={`hero-video-fallback ${videoLoaded && !prefersReducedMotion ? 'hidden' : ''}`}></div>
@@ -230,11 +134,11 @@ function Hero() {
         <div className="wrap">
           <div className="hero-content">
             <div className={`eyebrow ${isLoaded ? 'fade-in visible' : 'fade-in'}`}>
-              Specialty Chemicals · Since 1974
+              Oilfield &amp; Water Treatment Chemistry · Crockett, Texas
             </div>
 
             <SplitText
-              text="Specialty Chemistry, Delivered Globally"
+              text="A Legacy of Excellence in the Chemical Industry"
               className="hero-headline hf"
               tag="h1"
               delay={30}
@@ -250,8 +154,9 @@ function Hero() {
             />
 
             <p className={`sub sub-wide ${headlineComplete ? 'fade-up-delay visible' : 'fade-up-delay'}`}>
-              India's largest phosphonate producer — 275+ products serving 250+ clients
-              across 60+ countries, backed by the RP-Sanjiv Goenka Group.
+              Aquapharm PChem — now part of the RP-Sanjiv Goenka Group — manufactures
+              oilfield and water treatment chemistry on a 40-acre specialty plant in
+              Crockett, Texas, backed by a 7,000 sq ft application laboratory.
             </p>
 
             <div className={`hero-btns ${headlineComplete ? 'fade-up-delay visible delay-1' : 'fade-up-delay'}`}>
@@ -363,7 +268,7 @@ function Hero() {
                         <div className="search-result-card-header">
                           <span
                             className="search-result-tag"
-                            style={{ backgroundColor: `${getCategoryColor(product.category)}15`, color: getCategoryColor(product.category) }}
+                            style={{ backgroundColor: `${categoryColor(product.category)}15`, color: categoryColor(product.category) }}
                           >
                             {product.category}
                           </span>

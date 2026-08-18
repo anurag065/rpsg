@@ -1,0 +1,15 @@
+# Normalise line endings: store LF in the repository, check out native.
+# Without this, contributors whose core.autocrlf differs produce whole-file
+# diffs on files they only touched a line of.
+* text=auto
+
+# Binary assets — never line-ending convert or diff as text.
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.ico  binary
+*.mp4  binary
+*.webm binary
+*.woff  binary
+*.woff2 binary

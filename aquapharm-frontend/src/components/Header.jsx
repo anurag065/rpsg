@@ -7,10 +7,22 @@ import rpsgLogo from '../assets/logo-rpsg.jpeg';
 /* TODO: wire up real i18n translations at build phase (e.g. react-i18next) */
 const languages = [
   { code: 'EN', label: 'English' },
-  { code: 'ZH', label: '中文' },
   { code: 'ES', label: 'Español' },
+  { code: 'ZH', label: '中文' },
   { code: 'AR', label: 'العربية' },
   { code: 'FR', label: 'Français' },
+];
+
+/* Single source of truth — desktop and mobile nav render from this */
+const navLinks = [
+  { to: '/', label: 'Home', end: true },
+  { to: '/about', label: 'About' },
+  { to: '/products', label: 'Products' },
+  { to: '/industries', label: 'Industries' },
+  { to: '/sustainability', label: 'Sustainability' },
+  { to: '/rd-laboratory', label: 'R&D Laboratory' },
+  { to: '/certifications', label: 'Certifications' },
+  { to: '/careers', label: 'Careers' },
 ];
 
 function Header() {
@@ -42,11 +54,14 @@ function Header() {
     <header className="hdr">
       {/* Main header row */}
       <div className="hdr-main">
-        {/* Brand lockup: Aquapharm + RPSG */}
+        {/* Brand lockup: APChem + RPSG */}
         <div className="brand-lockup">
           <Link className="logo" to="/">
-            <img className="logo-mk" src={logo} alt="Aquapharm Chemical" />
-            <span className="logo-tx">AQUAPHARM</span>
+            <img className="logo-mk" src={logo} alt="APChem" />
+            <span className="logo-wm">
+              <span className="logo-tx">APChem<sup className="logo-r">®</sup></span>
+              <span className="logo-sub">Aquapharm PChem, LLC</span>
+            </span>
           </Link>
           <div className="brand-divider"></div>
           <div className="rpsg-lockup">
@@ -55,14 +70,16 @@ function Header() {
           </div>
         </div>
         <nav className="nav">
-          <NavLink to="/" className={({ isActive }) => isActive ? 'active' : ''}>Home</NavLink>
-          <NavLink to="/about">About</NavLink>
-          <NavLink to="/products">Products</NavLink>
-          <NavLink to="/industries">Industries</NavLink>
-          <NavLink to="/sustainability">Sustainability</NavLink>
-          <NavLink to="/innovation">Innovation Centre</NavLink>
-          <NavLink to="/investors">Investor Relations</NavLink>
-          <NavLink to="/careers">Careers</NavLink>
+          {navLinks.map((link) => (
+            <NavLink
+              key={link.to}
+              to={link.to}
+              end={link.end}
+              className={({ isActive }) => (isActive ? 'active' : '')}
+            >
+              {link.label}
+            </NavLink>
+          ))}
         </nav>
         <div className="hdr-r">
           {/* Language Switcher */}
@@ -102,14 +119,11 @@ function Header() {
 
       {/* Mobile nav */}
       <div className="mnav" style={{ display: menuOpen ? 'block' : 'none' }}>
-        <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
-        <Link to="/about" onClick={() => setMenuOpen(false)}>About</Link>
-        <Link to="/products" onClick={() => setMenuOpen(false)}>Products</Link>
-        <Link to="/industries" onClick={() => setMenuOpen(false)}>Industries</Link>
-        <Link to="/sustainability" onClick={() => setMenuOpen(false)}>Sustainability</Link>
-        <Link to="/innovation" onClick={() => setMenuOpen(false)}>Innovation Centre</Link>
-        <Link to="/investors" onClick={() => setMenuOpen(false)}>Investor Relations</Link>
-        <Link to="/careers" onClick={() => setMenuOpen(false)}>Careers</Link>
+        {navLinks.map((link) => (
+          <Link key={link.to} to={link.to} onClick={() => setMenuOpen(false)}>
+            {link.label}
+          </Link>
+        ))}
         {/* Mobile Language Selector */}
         <div className="mnav-lang">
           <Globe size={16} strokeWidth={1.5} />

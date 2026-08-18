@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
-const tags = ['GLDA', 'HEIDA', 'IDS', 'LEED-certified R&D'];
+const tags = ['GLDA', 'HEIDA', 'IDS', 'ISO 14001'];
 
 function Sustainability() {
   const [ref, isVisible] = useScrollAnimation(0.1);
@@ -14,9 +14,9 @@ function Sustainability() {
             <div className="kicker">Sustainability</div>
             <h2>Advancing greener chemistry</h2>
             <p>
-              Our biodegradable chelates are readily-biodegradable alternatives to EDTA/NTA,
-              developed at our LEED-certified Innovation Centre. We're committed to creating
-              sustainable chemistry solutions that minimize environmental impact.
+              Our biodegradable chelates are readily-biodegradable alternatives to EDTA and NTA,
+              and the Crockett site operates under a certified ISO 14001 environmental management
+              system. Greener chemistry, made under a system that is audited.
             </p>
             <div className="sus-tags">
               {tags.map((tag, index) => (

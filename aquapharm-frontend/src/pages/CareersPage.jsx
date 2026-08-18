@@ -10,18 +10,18 @@ const whyCards = [
 ];
 
 const jobs = [
-  { title: 'R&D Chemist', location: 'Pune, India', dept: 'R&D', type: 'Full-time' },
-  { title: 'Process Engineer', location: 'Mahad, India', dept: 'Operations', type: 'Full-time' },
+  { title: 'R&D Chemist', location: 'The Woodlands, TX', dept: 'R&D', type: 'Full-time' },
+  { title: 'Process Engineer', location: 'Crockett, TX', dept: 'Operations', type: 'Full-time' },
   { title: 'Regional Sales Manager', location: 'Americas', dept: 'Sales', type: 'Full-time' },
-  { title: 'Supply Chain Executive', location: 'Pune, India', dept: 'Operations', type: 'Full-time' },
-  { title: 'QA Analyst', location: 'Pirangut, India', dept: 'Operations', type: 'Full-time' }
+  { title: 'Supply Chain Executive', location: 'The Woodlands, TX', dept: 'Operations', type: 'Full-time' },
+  { title: 'QA Analyst', location: 'Crockett, TX', dept: 'Operations', type: 'Full-time' }
 ];
 
 const steps = [
   { num: 1, title: 'Apply', desc: 'Submit your application and resume for a role — or send a general application.' },
   { num: 2, title: 'Interview', desc: 'Meet our team for technical and team-fit conversations.' },
   { num: 3, title: 'Offer', desc: 'Receive a formal offer outlining role, compensation and next steps.' },
-  { num: 4, title: 'Onboard', desc: 'Join Aquapharm with structured onboarding and early mentorship.' }
+  { num: 4, title: 'Onboard', desc: 'Join APChem with structured onboarding and early mentorship.' }
 ];
 
 const lifeImages = [
@@ -58,9 +58,9 @@ function CareersPage() {
         <div className="chero-ov"></div>
         <div className="wrap chero-c">
           <div className={`crumb ${isLoaded ? 'animate-on-scroll visible' : 'animate-on-scroll'}`}><Link to="/">Home</Link> / Careers</div>
-          <div className={`eyebrow ${isLoaded ? 'animate-on-scroll visible' : 'animate-on-scroll'}`} style={{ transitionDelay: '0.1s' }}>Careers at Aquapharm</div>
+          <div className={`eyebrow ${isLoaded ? 'animate-on-scroll visible' : 'animate-on-scroll'}`} style={{ transitionDelay: '0.1s' }}>Careers at APChem</div>
           <h1 className={isLoaded ? 'animate-on-scroll visible' : 'animate-on-scroll'} style={{ transitionDelay: '0.2s' }}>Build Your Career in Chemistry That Matters</h1>
-          <p className={isLoaded ? 'animate-on-scroll visible' : 'animate-on-scroll'} style={{ transitionDelay: '0.3s' }}>Join a 50-year-old global specialty chemical leader — India's largest phosphonate producer, backed by the RP-Sanjiv Goenka Group — and help shape greener, higher-performing chemistry.</p>
+          <p className={isLoaded ? 'animate-on-scroll visible' : 'animate-on-scroll'} style={{ transitionDelay: '0.3s' }}>Join a specialty chemical manufacturer producing in Crockett, Texas since 1978 — backed by the RP-Sanjiv Goenka Group — and help shape greener, higher-performing chemistry for oilfield and water treatment.</p>
           <div className={`chero-btns ${isLoaded ? 'animate-on-scroll visible' : 'animate-on-scroll'}`} style={{ transitionDelay: '0.4s' }}>
             <a className="btn btn-pri hf" href="#openings">View Open Positions</a>
             <Link className="btn btn-outw hf" to="/contact">Send Your Resume</Link>
@@ -72,7 +72,7 @@ function CareersPage() {
         <div className="wrap">
           <div className={`sec-head ${whyVisible ? 'animate-on-scroll visible' : 'animate-on-scroll'}`}>
             <div>
-              <div className="kicker">Why Aquapharm</div>
+              <div className="kicker">Why APChem</div>
               <h2>A place to do meaningful work at global scale</h2>
             </div>
           </div>
@@ -96,14 +96,14 @@ function CareersPage() {
         <div className="wrap life-in">
           <div className={`sec-head ${lifeVisible ? 'animate-on-scroll visible' : 'animate-on-scroll'}`}>
             <div>
-              <div className="kicker">Life at Aquapharm</div>
+              <div className="kicker">Life at APChem</div>
               <h2>Where science, scale and people meet</h2>
             </div>
           </div>
           <div className="life-g">
             {lifeImages.map((img, i) => (
               <div key={i} className={`img-zoom ${i === 0 ? 'big' : ''} ${lifeVisible ? 'animate-scale visible' : 'animate-scale'}`} style={{ transitionDelay: `${i * 0.1}s`, borderRadius: '8px', overflow: 'hidden' }}>
-                <img className="real-img" src={img} alt={`Life at Aquapharm ${i + 1}`} />
+                <img className="real-img" src={img} alt={`Life at APChem ${i + 1}`} />
               </div>
             ))}
           </div>
@@ -154,7 +154,7 @@ function CareersPage() {
         </div>
       </section>
 
-      <section className="sec" style={{ background: '#FAF6F2' }} ref={procRef}>
+      <section className="sec" style={{ background: '#F1F6FB' }} ref={procRef}>
         <div className="wrap">
           <div className={`sec-head ${procVisible ? 'animate-on-scroll visible' : 'animate-on-scroll'}`}>
             <div>

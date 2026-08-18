@@ -123,7 +123,7 @@ function StatsSection() {
     {
       value: '11',
       suffix: '',
-      label: 'Warehouses in India, Europe, USA and Canada',
+      label: 'Warehouses across the Americas, Europe and Asia',
       icon: Truck
     },
     {
@@ -141,7 +141,7 @@ function StatsSection() {
     {
       value: '1',
       suffix: '',
-      label: 'Innovation Centre in India',
+      label: 'Application laboratory in Texas',
       icon: Microscope
     }
   ];
@@ -150,7 +150,7 @@ function StatsSection() {
     <section className="stats-section" ref={sectionRef}>
       <div className="wrap">
         <div className="stats-header">
-          <h2 className="stats-title hf">About Aquapharm</h2>
+          <h2 className="stats-title hf">About APChem</h2>
           <span className="stats-subtitle">Key Numbers</span>
         </div>
         <div className="stats-grid">

@@ -4,13 +4,13 @@ import logo from '../assets/aquapharm_chemicals_pvt_ltd_logo.jpeg';
 const companyLinks = [
   { to: '/products', label: 'Products' },
   { to: '/industries', label: 'Industries' },
-  { to: '/innovation', label: 'Innovation Centre' },
+  { to: '/rd-laboratory', label: 'R&D Laboratory' },
   { to: '/sustainability', label: 'Sustainability' },
   { to: '/about', label: 'About Us' }
 ];
 
 const quickLinks = [
-  { to: '/investors', label: 'Investor Relations' },
+  { to: '/certifications', label: 'Certifications' },
   { to: '/careers', label: 'Careers' },
   { to: '/sustainability', label: 'CSR' },
   { to: '/contact', label: 'Contact' },
@@ -18,12 +18,13 @@ const quickLinks = [
 ];
 
 const offices = [
-  { title: 'India (HQ)', location: 'Pune, Maharashtra · Plants: Mahad & Pirangut' },
-  { title: 'United States', location: 'Texas' },
-  { title: 'Saudi Arabia', location: 'Jeddah' }
+  { title: 'United States (HQ)', location: 'Crockett, TX · 40-acre manufacturing site' },
+  { title: 'Application Laboratory', location: 'The Woodlands, TX · 7,000 sq ft' },
+  { title: 'Latin America', location: 'Buenos Aires · Bogotá · Mexico City' },
+  { title: 'Asia & Middle East', location: 'Pune, India · Muscat, Oman' }
 ];
 
-const certifications = ['ISO 9001', 'ISO 14001', 'ISO 45001', 'REACH', 'Responsible Care', 'Halal', 'Kosher'];
+const certifications = ['ISO 9001', 'ISO 14001', 'ISO 45001', 'EcoVadis 2026'];
 
 function Footer() {
   return (
@@ -32,12 +33,15 @@ function Footer() {
         <div className="ft-top">
           <div className="ft-logo">
             <Link className="logo" to="/">
-              <img className="logo-mk" src={logo} alt="Aquapharm Chemical" />
-              <span className="logo-tx">AQUAPHARM</span>
+              <img className="logo-mk" src={logo} alt="APChem" />
+              <span className="logo-wm">
+                <span className="logo-tx">APChem<sup className="logo-r">®</sup></span>
+                <span className="logo-sub">Aquapharm PChem, LLC</span>
+              </span>
             </Link>
             <p className="ft-blurb">
-              Global specialty chemical manufacturer since 1974. India's largest phosphonate
-              producer, part of the RP-Sanjiv Goenka Group.
+              Oilfield and water treatment chemistry manufactured in Crockett, Texas
+              since 1978. Part of the RP-Sanjiv Goenka Group.
             </p>
           </div>
           <div>
@@ -74,11 +78,11 @@ function Footer() {
         <div className="ft-bot">
           <div className="l">
             <span className="rpsg">RPSG GROUP</span>
-            <p>&copy; 2026 Aquapharm Chemical Limited. All rights reserved.</p>
+            <p>&copy; 2026 Aquapharm PChem, LLC. All rights reserved.</p>
           </div>
           <div className="em">
-            <a href="mailto:info@aquapharm.com">info@aquapharm.com</a>
-            <a href="mailto:sales@aquapharm.com">sales@aquapharm.com</a>
+            <a href="mailto:info@apchem.com">info@apchem.com</a>
+            <a href="tel:+13462374300">(346) 237-4300</a>
           </div>
         </div>
       </div>

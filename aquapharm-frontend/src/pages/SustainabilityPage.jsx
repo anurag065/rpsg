@@ -14,7 +14,7 @@ const stewardship = [
     icon: <path d="M12 3c4 4 6 7 6 10a6 6 0 0 1-12 0c0-3 2-6 6-10Z"></path>,
     title: 'LEED-Certified, Zero-Discharge R&D',
     desc: "Our Innovation Centre is a LEED-certified, zero-liquid-discharge facility — designed to minimise environmental impact while we develop new chemistries.",
-    link: '/innovation'
+    link: '/rd-laboratory'
   },
   {
     icon: <><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18"></path></>,
@@ -89,7 +89,7 @@ function SustainabilityPage() {
               </ul>
             </div>
             <div className="cmp new">
-              <span className="tag">Aquapharm green chelates</span>
+              <span className="tag">APChem green chelates</span>
               <h3>GLDA · HEIDA · IDS</h3>
               <p>Biodegradable chelating agents designed to replace them in modern formulations:</p>
               <ul>
@@ -120,7 +120,7 @@ function SustainabilityPage() {
         </div>
       </section>
 
-      <section className="sec" style={{ background: '#FAF6F2' }} ref={stewRef}>
+      <section className="sec" style={{ background: '#F1F6FB' }} ref={stewRef}>
         <div className="wrap">
           <div className={`sec-head ${stewVisible ? 'animate-on-scroll visible' : 'animate-on-scroll'}`}>
             <div>
@@ -139,7 +139,7 @@ function SustainabilityPage() {
                 <h3>{item.title}</h3>
                 <p>
                   {item.desc}
-                  {item.link && <Link to={item.link} style={{ color: '#EA5A1C', fontWeight: 500 }}> Learn more →</Link>}
+                  {item.link && <Link to={item.link} style={{ color: '#0F62AE', fontWeight: 500 }}> Learn more →</Link>}
                 </p>
               </div>
             ))}

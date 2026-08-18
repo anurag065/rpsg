@@ -1,4 +1,3 @@
-import { useState, useCallback } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -10,15 +9,17 @@ import CareersPage from './pages/CareersPage';
 import ContactPage from './pages/ContactPage';
 import ProductDetailPage from './pages/ProductDetailPage';
 import SustainabilityPage from './pages/SustainabilityPage';
+import RDLabPage from './pages/RDLabPage';
+import CertificationsPage from './pages/CertificationsPage';
 import './App.css';
 
-function AppContent({ onPreloaderComplete }) {
+function AppContent() {
   const location = useLocation();
   const isHomePage = location.pathname === '/';
 
   return (
     <>
-      {isHomePage && <Preloader onComplete={onPreloaderComplete} />}
+      {isHomePage && <Preloader />}
       <div className="page">
         <Header />
         <main>
@@ -28,8 +29,8 @@ function AppContent({ onPreloaderComplete }) {
             <Route path="/product/:productId" element={<ProductDetailPage />} />
             <Route path="/industries" element={<Placeholder />} />
             <Route path="/sustainability" element={<SustainabilityPage />} />
-            <Route path="/innovation" element={<Placeholder />} />
-            <Route path="/investors" element={<Placeholder />} />
+            <Route path="/rd-laboratory" element={<RDLabPage />} />
+            <Route path="/certifications" element={<CertificationsPage />} />
             <Route path="/careers" element={<CareersPage />} />
             <Route path="/about" element={<Placeholder />} />
             <Route path="/contact" element={<ContactPage />} />
@@ -42,15 +43,9 @@ function AppContent({ onPreloaderComplete }) {
 }
 
 function App() {
-  const [preloaderComplete, setPreloaderComplete] = useState(false);
-
-  const handlePreloaderComplete = useCallback(() => {
-    setPreloaderComplete(true);
-  }, []);
-
   return (
     <Router>
-      <AppContent onPreloaderComplete={handlePreloaderComplete} />
+      <AppContent />
     </Router>
   );
 }

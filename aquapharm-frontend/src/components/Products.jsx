@@ -32,7 +32,7 @@ function Products() {
   const [ref, isVisible] = useScrollAnimation(0.1);
 
   return (
-    <section className="sec" style={{ background: '#FAF6F2' }} ref={ref}>
+    <section className="sec" style={{ background: '#F1F6FB' }} ref={ref}>
       <div className="wrap">
         <div className={`sec-head ${isVisible ? 'animate-on-scroll visible' : 'animate-on-scroll'}`}>
           <div>
